@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const sgMail = require('@sendgrid/mail');
+// const sgMail = require('@sendgrid/mail');
 
-sgMail.setApiKey(process.env.SENDGRID_APIKEY);
+// sgMail.setApiKey(process.env.SENDGRID_APIKEY);
 
 const UserModel = require('../models/userModel');
 const UserValidator = require('../validations/userValidation');
@@ -69,28 +69,29 @@ const controller = {
       process.env.JWT_SECRET_ACTIVATE
     );
 
-    const message = {
-      to: email,
-      from: 'helloworld.sg.ga@gmail.com',
-      subject: 'Please Verify Your Email',
-      html: `
-        <h1>Welcome to HelloWorld!</h1>
-        <hr/>
-        <h2>Click the link below to verify your email and get started</h2>
-        <a href="${process.env.CLIENT_URL}/users/activate/${activateToken}" style="color:#33BB9A; font-weight: 600;">
-          <h3>Verify my email<h3>
-        </a>
-      `,
-    };
+    // const message = {
+    //   to: email,
+    //   from: 'helloworld.sg.ga@gmail.com',
+    //   subject: 'Please Verify Your Email',
+    //   html: `
+    //     <h1>Welcome to HelloWorld!</h1>
+    //     <hr/>
+    //     <h2>Click the link below to verify your email and get started</h2>
+    //     <a href="${process.env.CLIENT_URL}/users/activate/${activateToken}" style="color:#33BB9A; font-weight: 600;">
+    //       <h3>Verify my email<h3>
+    //     </a>
+    //   `,
+    // };
 
-    try {
-      await sgMail.send(message);
-      return res.json({ activateToken });
-    } catch (error) {
-      return res.status(500).json({
-        error: 'Unable to send activation email',
-      });
-    }
+    // try {
+    //   await sgMail.send(message);
+    //   return res.json({ activateToken });
+    // } catch (error) {
+    //   return res.status(500).json({
+    //     error: 'Unable to send activation email',
+    //   });
+    // }
+    return res.json({ activateToken });
   },
 
   login: async (req, res) => {
