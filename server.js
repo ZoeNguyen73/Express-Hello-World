@@ -14,10 +14,26 @@ const dataRouter = require('./routes/dataRoutes');
 const app = express();
 const port = process.env.PORT || 8800;
 
+const raw = process.env.ALLOWED_ORIGINS || "";
+const allowedOrigins = raw.split(",").map(s => s.trim()).filter(Boolean);
+const allowCredentials = false;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+// app.use(cors({ origin: process.env.CORS_ORIGIN }));
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like curl or same-origin)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error(`CORS blocked: ${origin} not in allowlist`));
+  },
+  credentials: allowCredentials,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 app.use('/api/v1/projects', projectRouter);
 app.use('/api/v1/auth', authRouter);
