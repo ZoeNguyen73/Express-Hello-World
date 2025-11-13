@@ -8,9 +8,9 @@ Note that screenshots of wire frames and user stories will be included in the fr
 
 ## Links
 
-Server - https://hello-world-sg.cyclic.app/
+Server - [https://hello-world-sg.cyclic.app/](https://express-hello-world-1-6zlx.onrender.com)
 
-Front end - https://hello-world-sg.netlify.app/
+Front end - [https://hello-world-sg.netlify.app/](https://hello-world-sg.netlify.app/)
 
 ## Tech Stack
 
@@ -19,7 +19,7 @@ In the backend, the tech stack was:
 * Express - Routing
 * Mongo DB Atlas and Mongoose - Database
 * Multer and Imagekit - To handle photo uploads
-* Sendgrid Mail - To handle sending confirmation tokens to users
+* Sendgrid Mail - To handle sending confirmation tokens to users (temporarily suspended due to issues with sendgrid service)
 * Various assorted packages for CORS, Git and validation
 
 ## Planning and Execution
