@@ -8,7 +8,7 @@ Note that screenshots of wire frames and user stories will be included in the fr
 
 ## Links
 
-Server - [https://hello-world-sg.cyclic.app/](https://express-hello-world-1-6zlx.onrender.com)
+Server - [https://express-hello-world-1-6zlx.onrender.com](https://express-hello-world-1-6zlx.onrender.com)
 
 Front end - [https://hello-world-sg.netlify.app/](https://hello-world-sg.netlify.app/)
 
