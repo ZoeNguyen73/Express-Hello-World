@@ -91,8 +91,7 @@ const controller = {
     //     error: 'Unable to send activation email',
     //   });
     // }
-
-    return { activateToken };
+    return res.json({ activateToken });
   },
 
   login: async (req, res) => {
